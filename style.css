@@ -1,0 +1,19 @@
+body{
+    background-color: forestgreen;
+    
+
+}
+
+#title {
+    color: antiquewhite;
+    font-family:Helvetica;
+    font-size: xx-large;
+    padding: 5%;
+
+}
+
+.search-bar {
+    font-family: Helvetica;
+    font-size: large;
+    color:antiquewhite;
+}
