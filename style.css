@@ -1,12 +1,11 @@
 body{
     background-color: forestgreen;
-    
-
+    font-family:Helvetica;
 }
 
 #title {
     color: antiquewhite;
-    font-family:Helvetica;
+
     font-size: xx-large;
     padding: 5%;
 
@@ -16,4 +15,17 @@ body{
     font-family: Helvetica;
     font-size: large;
     color:antiquewhite;
+}
+
+.controls {
+    color: white;
+    display:inline-block;
+    margin: auto;
+    border: 5px black;
+}
+
+.play-pause{
+    padding: 15px, 32px;
+    text-align: center;
+    
 }

@@ -1,31 +1,47 @@
 <!DOCTYPE html>
-<html>
-    <head >
-        <title> OnTheSong </title>
-        <link rel="stylesheet"
-             href="style.css"> 
-    </head>
-    <body>
-        <header>
-            <h1 id="title"> OnTheSong </h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnTheSong</title>
+    <link rel="stylesheet"
+            href="style.css">
 
-            <div class="header-image"> 
+</head>
+<header>
+    <h1 id="title"> OnTheSong </h1>
 
-            </div>
-        </header>
+    <div class="header-image"> 
 
-        <div class="search-bar">
-            <label for="search-bar" class="search-bar label">Search for a song...</label>
-            <input type="text" name="search" id="search-bar text" class="search-input">
+    </div>
+</header>
+<body>
+    <div class="search-bar">
+        <label for="search-bar" class="search-bar label">Search for a song...</label>
+        <input type="text" name="search" id="search-bar text" class="search-input">
+    </div>
+    <div class="music-player">      
+        <div class="song-info">
+            <h1 id="SongName">Song Name </h1>
+            <h1 id="ArtistName"> Artist Name </h1>
+            <h1 id="AlbumName"> Album Name </h1>
+        </div>
+        <div class="song-image">
+            <img src="" >
         </div>
 
-        <div class="music-player">
-            
+        <div class="controls">
+            <button class="next-song"> Next Song </button>
+
+            <button class="play-pause"> Play/Pause </button>
+
+            <button type="button" class="previous-song"> Previous Song </button>
 
 
 
 
         </div>
-
-    </body>
+    </div>
+</body>
 </html>
