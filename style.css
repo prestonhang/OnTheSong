@@ -12,12 +12,14 @@ body{
 }
 
 .search-bar {
-    display: inline;
+    margin: auto;
+    text-align: center;
     font-family: Helvetica;
     font-size: large;
     color:antiquewhite;
 }
 .music-player{
+    display: block;
     padding: 100px;
     width: 45%;
     color: lightblue;
