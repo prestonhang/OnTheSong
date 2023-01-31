@@ -4,28 +4,44 @@ body{
 }
 
 #title {
-    color: antiquewhite;
-
+    color: white;
     font-size: xx-large;
-    padding: 5%;
+    margin: auto;
+    text-align: center;
 
 }
 
 .search-bar {
+    display: inline;
     font-family: Helvetica;
     font-size: large;
     color:antiquewhite;
 }
+.music-player{
+    padding: 100px;
+    width: 45%;
+    color: lightblue;
+    background-color:skyblue;
+    margin:auto;
 
-.controls {
-    color: white;
-    display:inline-block;
-    margin: auto;
-    border: 5px black;
 }
 
-.play-pause{
-    padding: 15px, 32px;
+.song-image{
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+}
+
+.song-info{
+    color:white;
+    text-align: center; 
+}
+
+.controls {
     text-align: center;
-    
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
