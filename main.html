@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnTheSong</title>
-    <link rel="stylesheet"
-            href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" charset="utf-8" defer></script>
 
 </head>
 <header>
@@ -19,33 +19,27 @@
 <body>
     <div class="music-player">
         <div class="song-image">
-            <img src="C:\Users\Preston\Documents\School\OnTheSong\musicnote.png" >
-        </div>    
-        <div class="song-info">
-            <h3 class="SongName">Song Name </h1>
-            <h3 class="ArtistName"> Artist Name </h1>
-            <h3 class="AlbumName"> Album Name </h1>
+            <img src="C:\Users\Preston\Documents\School\OnTheSong\musicnote.png" id="image" >  
         </div>
+        <div class="song-info">
+            <h3 id="SongName"> Song Name </h3>
+            <h3 id="ArtistName"> Artist Name </h3>
+            <h3 id="AlbumName"> Album Name </h3>
+        </div>
+        <audio src="./songfiles/Joji - Die For You.mp3" id="audio"></audio>
 
         <div class="controls">
-            <a href="https://www.google.com">
-                <button type="button" class="prev-song"> 
-                    <span class="prev-song-text"> Prev Song </span>
-                </button>
-            </a>
+            <button onclick="prevSong()" type="button" class="prev-song"> 
+                <span class="prev-song-text"> Prev Song </span>
+            </button>
 
-            <a href="https://www.google.com">
-                <button type="button" class="play-pause"> 
-                    <span class="play-pause"> Play/Pause </span>
-                </button>
-            </a>
+            <button onclick="playOrPause()"type="button" class="play-pause"> 
+                <span class="play-pause"> Play/Pause </span>
+            </button>
 
-            <a href="https://www.google.com">
-                <button type="button" class="next-song"> 
-                    <span class="next-song-text"> Next Song </span>
-                </button>
-            </a>
-
+            <button onclick="nextSong()" type="button" class="next-song"> 
+                <span class="next-song-text"> Next Song </span>
+            </button>
         </div>
     </div>
     <div class="search-bar">

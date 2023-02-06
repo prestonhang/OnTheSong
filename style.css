@@ -27,13 +27,17 @@ body{
     margin:auto;
 
 }
-
 .song-image{
-    display: block;
-    width: 50%;
+    display: flex;
     margin-left: auto;
     margin-right: auto;
-    padding: 5px;
+}
+
+#image{
+    height: 250px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .song-info{
