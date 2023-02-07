@@ -4,7 +4,10 @@ var artistName = document.querySelector('#ArtistName');
 var albumName = document.querySelector('#AlbumName');
 var songImage = document.querySelector('#image');
 
-var playPauseButton = document.querySelector('.play-pause')
+var playPauseButton = document.querySelector('.play-pause');
+var volume = document.querySelector('.volume');
+
+var searchInput = document.querySelector('.search-input');
 
 var songs = [
     {   name: "Die For You",
@@ -84,7 +87,7 @@ function updateSong(song){
     albumName.textContent = song.album;
     songImage.src = song.image;
     audio.src = song.audio;
-    audio.play()
+    changeVolume();
 }
 
 
@@ -98,6 +101,8 @@ function nextSong(){
     currentSong = songs[currentIndex];
     
     updateSong(currentSong);
+    audio.play();
+    ifPlaying = true;
 }
 
 function prevSong(){
@@ -110,11 +115,30 @@ function prevSong(){
     currentSong = songs[currentIndex];
     
     updateSong(currentSong);
+    audio.play();
+    ifPlaying = true;
 }
 
+function changeVolume(){
+    var volumeValue = document.querySelector('.volume').value;
+    audio.volume = (volumeValue/100);
+}
 
 //On Start
 let currentTrack = songs[0];
 let currentIndex = 0;
+updateSong(currentTrack);
 
-updateSong(currentTrack)
+
+volume.addEventListener('input', function(){
+    changeVolume();
+})
+
+searchInput.addEventListener('input', function(){
+        var userString = document.querySelector('.search-input').value;
+        console.log(userString);
+        //open div
+        //if userString matches song names
+        
+
+})
