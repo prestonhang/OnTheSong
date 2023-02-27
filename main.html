@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnTheSong</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="app.js" charset="utf-8" defer></script>
+    <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
+    <!-- <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
 
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
 </head>
 <header>
     <h1 id="title"> OnTheSong </h1> 
@@ -48,5 +50,12 @@
         <label for="search-bar" class="search-bar label">Search for a song...</label>
         <input type="text" name="search" id="search-bar text" class="search-input">
     </div>
+    <div class="suggest-button">
+        <button type="button" id="suggest">
+            <span id="suggest-text" onclick=getSongRec()> Click For a Song Recommendation </span>
+        </button>
+        <h3 id="rec-text"> Song Recommendation </h3>
+    </div>
+    
 </body>
 </html>

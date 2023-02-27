@@ -6,8 +6,9 @@ var songImage = document.querySelector('#image');
 
 var playPauseButton = document.querySelector('.play-pause');
 var volume = document.querySelector('.volume');
-
 var searchInput = document.querySelector('.search-input');
+var file = document.querySelector("#returned-song");
+//import { writeFile } from 'fs';
 
 var songs = [
     {   name: "Die For You",
@@ -124,10 +125,26 @@ function changeVolume(){
     audio.volume = (volumeValue/100);
 }
 
+function getSongRec(){
+    const api_url = "http://127.0.0.1:5000/";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("rec-text").textContent = (this.responseText);
+        }
+    };
+    xhttp.open("GET", api_url, true);
+    xhttp.send()
+}
+
+
+
 //On Start
+
 let currentTrack = songs[0];
 let currentIndex = 0;
 updateSong(currentTrack);
+
 
 
 volume.addEventListener('input', function(){
@@ -141,4 +158,12 @@ searchInput.addEventListener('input', function(){
         //if userString matches song names
         
 
+})
+
+file.addEventListener('change', function() {
+    var fr = new FileReader();
+    fr.onload = function(){
+        document.getElementById('rec-text').textContent = fr.result;
+        }
+    fr.readAsText(this.files[0]);
 })
