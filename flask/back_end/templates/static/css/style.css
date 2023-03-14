@@ -1,0 +1,64 @@
+body{
+    background-color: forestgreen;
+    font-family:Helvetica;
+}
+
+#title {
+    color: white;
+    font-size: xx-large;
+    margin: auto;
+    text-align: center;
+
+}
+
+.search-bar {
+    margin: auto;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: large;
+    color:antiquewhite;
+}
+.music-player{
+    display: block;
+    padding: 50px;
+    width: 45%;
+    color: lightblue;
+    background-color:skyblue;
+    margin:auto;
+
+}
+.song-image{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#image{
+    height: 250px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.song-info{
+    color:white;
+    text-align: center; 
+}
+
+.volume-text{
+    color: white;
+    font-size: large;
+    display: block;
+    margin-top: 20px;
+}
+
+.volume{
+    display: inline;
+}
+
+.controls {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}

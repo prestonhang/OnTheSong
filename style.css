@@ -1,5 +1,5 @@
 body{
-    background-color: forestgreen;
+    background-color: #06283D;
     font-family:Helvetica;
 }
 
@@ -17,13 +17,15 @@ body{
     font-family: Helvetica;
     font-size: large;
     color:antiquewhite;
+    padding: 10px;
 }
 .music-player{
+    border-radius: 45px;
     display: block;
     padding: 50px;
     width: 45%;
-    color: lightblue;
-    background-color:skyblue;
+    color: #256D85;
+    background-color: #256D85;
     margin:auto;
 
 }
@@ -61,4 +63,51 @@ body{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+}
+svg:hover {
+    fill: black;
+}
+
+.play-pause {
+    width: 50px;
+    height: 50px;
+    background-color: #256D85;
+    border: 0px;
+}
+.prev-song {
+    width: 50px;
+    height: 50px;
+    background-color: #256D85;
+    border: 0px;
+}
+.next-song {
+    width: 50px;
+    height: 50px;
+    background-color: #256D85;
+    border: 0px;
+}
+
+.suggest-button {
+    padding: 10px;
+    color: white;
+    width: 50%;
+    height: 70%;
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 10px;
+}
+
+#rec-text {
+    text-align: center;
+}
+
+.tutorial-image {
+    border-radius: 45px;
+    display: block;
+    padding: 50px;
+    width: 45%;
+}
+
+#too-many-enters {
+    display: none;
 }

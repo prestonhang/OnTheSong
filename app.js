@@ -1,15 +1,16 @@
+
+//Initializers to grab certain contexts in HTML
 var audio = document.querySelector('#audio');
 var songName = document.querySelector('#SongName');
 var artistName = document.querySelector('#ArtistName');
 var albumName = document.querySelector('#AlbumName');
 var songImage = document.querySelector('#image');
-
-var playPauseButton = document.querySelector('.play-pause');
+var playPauseButton = document.querySelector('.play-pause-button');
 var volume = document.querySelector('.volume');
 var searchInput = document.querySelector('.search-input');
 var file = document.querySelector("#returned-song");
-//import { writeFile } from 'fs';
 
+//List of song objects
 var songs = [
     {   name: "Die For You",
         artist: "Joji",
@@ -68,32 +69,44 @@ var songs = [
     }
 ]
 
-let totalSongs = 8;
-let ifPlaying = false;
-
+/**********************************************
+ * playOrPause()
+ * Used to switch the audio on or off
+ **********************************************/
 function playOrPause(){
     if(ifPlaying == false){
         audio.play();
         ifPlaying = true;
     }
     else{
+        
         audio.pause();
         ifPlaying = false;
     }
 }
 
+/**********************************************
+ * updateSong()
+ * Input: song
+ * Set all current values and contexts to the 
+ * input
+ **********************************************/
 function updateSong(song){
     songName.textContent = song.name;
     artistName.textContent = song.artist;
     albumName.textContent = song.album;
     songImage.src = song.image;
     audio.src = song.audio;
-    changeVolume();
 }
 
 
+/**********************************************
+ * nextSong()
+ * Used to increase the index and update the 
+ * song
+ **********************************************/
 function nextSong(){
-    if(currentIndex == (totalSongs - 1)){           //if we
+    if(currentIndex == (totalSongs - 1)){
         currentIndex = 0;
     }
     else{
@@ -106,6 +119,11 @@ function nextSong(){
     ifPlaying = true;
 }
 
+
+/**********************************************
+ * prevSong()
+ * Used to decrease the index and update the song
+ **********************************************/
 function prevSong(){
     if(currentIndex == 0){
         currentIndex = (totalSongs-1);
@@ -120,50 +138,110 @@ function prevSong(){
     ifPlaying = true;
 }
 
+
+/**********************************************
+ * changeVolume()
+ * Changes the volume of the song
+ **********************************************/
 function changeVolume(){
     var volumeValue = document.querySelector('.volume').value;
     audio.volume = (volumeValue/100);
 }
 
+/**********************************************
+ * getSongRec()
+ * Used to intialize request to microservice
+ * Fetches result of Flask backend to get song
+ * recommendation
+ **********************************************/
 function getSongRec(){
+    //Open Flask URL
     const api_url = "http://127.0.0.1:5000/";
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("rec-text").textContent = (this.responseText);
+        //If state is done and HTTP OK gotten
+        if(this.readyState == 4 && this.status == 200) {   
+            document.getElementById("rec-text").textContent = (this.responseText);
         }
     };
     xhttp.open("GET", api_url, true);
     xhttp.send()
 }
 
+/**********************************************
+ * changeToSearchedSong()
+ * Inputs: song     - song entered to be played
+ *         index    - index of the song
+ **********************************************/
+function changeToSearchedSong(song, index){
+    currentTrack = song;
+    currentIndex = index;
+    updateSong(currentTrack);
+    audio.play();
+}
 
 
-//On Start
+function checkInputFromSearch(userString, count, warning){
+    for(let i = 0; i < totalSongs; i++){
+        //Compare each attribute of each song
+        let checkUserInputName = songs[i].name.includes(userString)
+        let checkUserInputArtist = songs[i].artist.includes(userString);
+        let checkUserInputAlbum = songs[i].album.includes(userString);
+        if(checkUserInputName == true || checkUserInputArtist == true || checkUserInputAlbum == true){
+            //If the current track fits the user input, continue further
+            if(currentTrack == songs[i]){
+                continue;
+            }
+            else{
+                warning.style.display = 'none';
+                changeToSearchedSong(songs[i], i);
+                break;
+            }
+        }
+        else{
+            count++;
+        }
+        if(count == 2){
+            warning.style.display = 'block';
+        }
+    }
+}
 
+/**********************************************
+ * Main event loop
+ * Initializes startup
+ **********************************************/
+let totalSongs = 8;
+let ifPlaying = false;
 let currentTrack = songs[0];
 let currentIndex = 0;
+var count = 0;
 updateSong(currentTrack);
 
 
 
+
+/**********************************************
+ * EVENT LISTENERS
+ **********************************************/
+
+//On volume bar change
 volume.addEventListener('input', function(){
     changeVolume();
 })
 
-searchInput.addEventListener('input', function(){
-        var userString = document.querySelector('.search-input').value;
-        console.log(userString);
-        //open div
-        //if userString matches song names
-        
 
+//On search input change
+searchInput.addEventListener('input', function(){
+    var userString = document.querySelector('.search-input').value;
 })
 
-file.addEventListener('change', function() {
-    var fr = new FileReader();
-    fr.onload = function(){
-        document.getElementById('rec-text').textContent = fr.result;
-        }
-    fr.readAsText(this.files[0]);
+//On search enter 
+searchInput.addEventListener('keypress', function(event){
+    //If user input an Enter key
+    if(event.key === "Enter"){
+        var userString = document.querySelector('.search-input').value;
+        var warning = document.querySelector('#too-many-enters');
+        checkInputFromSearch(userString, count, warning);
+    }
 })

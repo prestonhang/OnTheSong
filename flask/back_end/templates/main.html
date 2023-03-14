@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnTheSong</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='script/app.js') }}">
+    </script>
+</head>
+<header>
+    <h1 id="title"> OnTheSong </h1> 
+
+    <div class="header-image"> 
+
+    </div>
+</header>
+<body>
+    <div class="music-player">
+        <div class="song-image">
+            <img src="C:\Users\Preston\Documents\School\OnTheSong\musicnote.png" id="image" >  
+        </div>
+        <div class="song-info">
+            <h3 id="SongName"> Song Name </h3>
+            <h3 id="ArtistName"> Artist Name </h3>
+            <h3 id="AlbumName"> Album Name </h3>
+        </div>
+        <audio id="audio"></audio>
+
+        <div class="controls">
+            <button onclick="prevSong()" type="button" class="prev-song"> 
+                <span class="prev-song-text"> Prev Song </span>
+            </button>
+
+            <button onclick="playOrPause()"type="button" class="play-pause"> 
+                <span class="play-pause"> Play/Pause </span>
+            </button>
+
+            <button onclick="nextSong()" type="button" class="next-song"> 
+                <span class="next-song-text"> Next Song </span>
+            </button>
+            <span class="volume-text"> Volume: </span>
+            <input type="range" min="0" max="100" value="50" class="volume">
+        </div>
+    </div>
+    <div class="search-bar">
+        <label for="search-bar" class="search-bar label">Search for a song...</label>
+        <input type="text" name="search" id="search-bar text" class="search-input">
+    </div>
+    <div class="suggest-button">
+        <button type="button" class="suggest">
+            <span id="suggest-text"> Click For a Song Recommendation </span>\
+            <input type="file" id="returned-song">
+        </button>
+        <h3 id="rec-text"> Song Recommendation </h3>
+    </div>
+    
+</body>
+</html>

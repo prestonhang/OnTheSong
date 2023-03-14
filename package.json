@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "file-system": "^1.2.9"
+  }
+}

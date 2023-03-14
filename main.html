@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnTheSong</title>
-    <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
-    <!-- <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="app.js" defer></script>
 </head>
 <header>
@@ -19,6 +18,15 @@
     </div>
 </header>
 <body>
+       
+    <div class="tutorial">
+        <a href="tutorial.html">
+            <button type = "button" id="tutorialpage" title="Click for a simple feature outline">
+                <span> Tutorial page</span>
+            </button>
+        </a>
+    </div>
+
     <div class="music-player">
         <div class="song-image">
             <img src="C:\Users\Preston\Documents\School\OnTheSong\musicnote.png" id="image" >  
@@ -31,31 +39,34 @@
         <audio id="audio"></audio>
 
         <div class="controls">
-            <button onclick="prevSong()" type="button" class="prev-song"> 
-                <span class="prev-song-text"> Prev Song </span>
+            <button onclick="prevSong()" type="button" class="prev-song" title="Click to go to the previous track">
+                <svg xmlns="http://www.w3.org/2000/svg"  fill="white" class="bi bi-skip-start-circle-fill" viewBox="0 0 16 16"> <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM9.71 5.093 7 7.028V5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0V8.972l2.71 1.935a.5.5 0 0 0 .79-.407v-5a.5.5 0 0 0-.79-.407z"/> </svg>
+                <span class="prev-song-text"> </span>
             </button>
 
-            <button onclick="playOrPause()"type="button" class="play-pause"> 
-                <span class="play-pause"> Play/Pause </span>
+            <button onclick="playOrPause()"type="button" class="play-pause" title="Click to pause or play">
+                <svg xmlns="http://www.w3.org/2000/svg" fill='white' class="play-pause-image" viewBox="0 0 16 16"> <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/> </svg>
+                <span class="play-pause" > </span>
             </button>
 
-            <button onclick="nextSong()" type="button" class="next-song"> 
-                <span class="next-song-text"> Next Song </span>
+            <button onclick="nextSong()" type="button" class="next-song" title="Click to go to the next track">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-skip-end-circle-fill" viewBox="0 0 16 16"> <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407L9.5 8.972V10.5a.5.5 0 0 0 1 0v-5a.5.5 0 0 0-1 0v1.528L6.79 5.093z"/> </svg> 
+                <span class="next-song-text"></span>
             </button>
             <span class="volume-text"> Volume: </span>
-            <input type="range" min="0" max="100" value="50" class="volume">
+            <input type="range" min="0" max="100" value="50" class="volume" title="Change volume">
         </div>
     </div>
     <div class="search-bar">
         <label for="search-bar" class="search-bar label">Search for a song...</label>
-        <input type="text" name="search" id="search-bar text" class="search-input">
+        <input type="text" name="search" id="search-bar text" class="search-input" title="Enter a song name, artist, or album name available in the playlist of songs">
+        <span id="too-many-enters"> No results found. Search for something new! </span>
     </div>
     <div class="suggest-button">
-        <button type="button" id="suggest">
+        <button type="button" id="suggest" title="Click to get a song recommendation from a microservice">
             <span id="suggest-text" onclick=getSongRec()> Click For a Song Recommendation </span>
         </button>
         <h3 id="rec-text"> Song Recommendation </h3>
     </div>
-    
 </body>
 </html>
